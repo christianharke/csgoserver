@@ -52,7 +52,7 @@ docker run -it \
 ```
 
 Variable | Value | Default | Description
-- | - | - | -
+-------- | ----- | ------- | -----------
 log | <code>[on&#124;off]</code> | `on` |
 hostname | `[hostname]` | `CS:GO Server` |
 port | `[# UDP port game]` | `27015` |
