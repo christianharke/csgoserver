@@ -4,7 +4,7 @@ CS:GO Dedicated Server containing MetaMod and SourceMod, running in a Docker con
 
 ## How to get up and running
 
-> Note that the port always have to be given, otherwise it won't be accessible. For further information refer to the [Docker user guide](https://docs.docker.com/v1.8/userguide/dockerlinks/).
+> Note that the port always have to be given, otherwise it won't be accessible from outside. For further information refer to the [Docker user guide](https://docs.docker.com/v1.8/userguide/dockerlinks/).
 
 ### Minimal setup
 
@@ -51,19 +51,19 @@ docker run -it \
     christianharke/csgoserver
 ```
 
-| Variable | Value | Default | Description |
-|-|-|-|-|
-| log | <code>[on&#124;off]</code> | `on` | |
-| hostname | `[hostname]` | `CS:GO Server` | |
-| port | `[# UDP port game]` | `27015` | |
-| sourcetvport | `[# UDP port game]` | `27020` | |
-| tickrate | `[# rate of getting player position]` | `128` | |
-| game_type | <code>[0&#124;1]</code> | `0` | see below table |
-| game_mode | <code>[0&#124;1]</code> | `0` | see below table |
-| mapgroup | `[mapgroup]` | `mg_active` | Change the map group |
-| maxplayers | `[# players]` | - | Change the maximum number of players allowed on this server |
-| limitteams | `[#]` | `1` | Maximum number of allowed disbalance |
-| autoteambalance | <code>[0&#124;1]</code> | `1` | Automatically balance team by players strength |
+Variable | Value | Default | Description
+- | - | - | -
+log | <code>[on&#124;off]</code> | `on` |
+hostname | `[hostname]` | `CS:GO Server` |
+port | `[# UDP port game]` | `27015` |
+sourcetvport | `[# UDP port game]` | `27020` |
+tickrate | `[# rate of getting player position]` | `128` |
+game_type | <code>[0&#124;1]</code> | `0` | see below table
+game_mode | <code>[0&#124;1]</code> | `0` | see below table
+mapgroup | `[mapgroup]` | `mg_active` | Change the map group
+maxplayers | `[# players]` | - | Change the maximum number of players allowed on this server
+limitteams | `[#]` | `1` | Maximum number of allowed disbalance
+autoteambalance | <code>[0&#124;1]</code> | `1` | Automatically balance team by players strength
 
 ```
 Mode                   game_mode    game_type
