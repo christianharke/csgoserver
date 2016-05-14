@@ -58,20 +58,20 @@ hostname | `[hostname]` | `CS:GO Server` |
 port | `[# UDP port game]` | `27015` |
 sourcetvport | `[# UDP port game]` | `27020` |
 tickrate | `[# rate of getting player position]` | `128` |
-game_type | <code>[0&#124;1]</code> | `0` | see below table
-game_mode | <code>[0&#124;1]</code> | `0` | see below table
+game_mode* | <code>[0&#124;1]</code> | `0` | see below table
+game_type** | <code>[0&#124;1]</code> | `0` | see below table
 mapgroup | `[mapgroup]` | `mg_active` | Change the map group
 maxplayers | `[# players]` | - | Change the maximum number of players allowed on this server
 limitteams | `[#]` | `1` | Maximum number of allowed disbalance
 autoteambalance | <code>[0&#124;1]</code> | `1` | Automatically balance team by players strength
 
 ```
-Mode                   game_mode    game_type
-Classic Casual             0            0
-Classic Competitive        0            1
-Arms Race                  1            0
-Demolition                 1            1
-Deathmatch                 2            1
+Mode                   *game_mode    **game_type
+Classic Casual              0              0
+Classic Competitive         0              1
+Arms Race                   1              0
+Demolition                  1              1
+Deathmatch                  2              1
 ```
 
 ### Console Commands (Cvars)
