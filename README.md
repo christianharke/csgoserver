@@ -4,7 +4,7 @@ CS:GO Dedicated Server containing MetaMod and SourceMod, running in a Docker con
 
 ## How to get up and running
 
-> Note that the port always have to be given, otherwise it won't be accessible from outside. For further information refer to the [Docker user guide](https://docs.docker.com/v1.8/userguide/dockerlinks/).
+> Note that the port always has to be given, otherwise it won't be accessible from outside. For further information refer to the [Docker user guide](https://docs.docker.com/v1.8/userguide/dockerlinks/).
 
 ### Minimal setup
 
@@ -24,8 +24,6 @@ docker run -it \
     +rcon_password [RCON password]
 ```
 
-> Note that if the gameserver's port (UDP => `27015/udp` here) is changed, the RCON port (TCP => `27015` here) changes as well.
-
 ### With Source-TV enabled
 
 ```
@@ -40,43 +38,41 @@ docker run -it \
 
 ## Configuration
 
-### Environment Variables
+### Environment variables
 
-Add environment variables to the run command, e. g.:
+#### Available variables
+
+Variable | Value | Default
+-------- | ----- | -------
+tickrate | `[# ticks per second]` | `128`
+maxplayers | `[# of players]` | `16`
+
+#### Example
+
+##### Change maximum number of players
 
 ```
 docker run -it \
-    -e hostname="My Awesome Gameserver" \
+    -e maxplayers=4 \
     -p 27015:27015/udp \
     christianharke/csgoserver
 ```
 
-Variable | Value | Default | Description
--------- | ----- | ------- | -----------
-log | <code>[on&#124;off]</code> | `on` |
-hostname | `[hostname]` | `CS:GO Server` |
-port | `[# UDP port game]` | `27015` |
-sourcetvport | `[# UDP port game]` | `27020` |
-tickrate | `[# rate of getting player position]` | `128` |
-game_mode* | <code>[0&#124;1]</code> | `0` | see below table
-game_type** | <code>[0&#124;1]</code> | `0` | see below table
-mapgroup | `[mapgroup]` | `mg_active` | Change the map group
-maxplayers | `[# players]` | - | Change the maximum number of players allowed on this server
-limitteams | `[#]` | `1` | Maximum number of allowed disbalance
-autoteambalance | <code>[0&#124;1]</code> | `1` | Automatically balance team by players strength
+### Console commands (Cvars)
 
-```
-Mode                   *game_mode    **game_type
-Classic Casual              0              0
-Classic Competitive         0              1
-Arms Race                   1              0
-Demolition                  1              1
-Deathmatch                  2              1
-```
+#### Predefined defaults
 
-### Console Commands (Cvars)
+Variable | Value | Default
+-------- | ----- | -------
+log | <code>[on&#124;off]</code> | `on`
 
-Additionally, you can add commands to be executed directly after start, e. g.:
+Additionally, you can add commands to be executed directly after start.
+
+> For more details see: please refer to this [inofficial but rather complete list of CS:GO Console Commands](http://www.tobyscs.com/csgo-console-commands/)
+
+#### Examples
+
+##### Set first map after startup
 
 ```
 docker run -it \
@@ -85,4 +81,22 @@ docker run -it \
     +map de_dust2
 ```
 
-> For details, please refer to the official documentation: [Valve Console Command List](https://developer.valvesoftware.com/wiki/Console_commands).
+##### Set game mode to Deathmatch
+
+```
+docker run -it \
+    -p 27015:27015/udp \
+    christianharke/csgoserver \
+    +game_mode 2 \
+    +game_type 1
+```
+
+> Available modes/types:
+> ```
+Mode                   game_mode    game_type
+Classic Casual             0            0
+Classic Competitive        0            1
+Arms Race                  1            0
+Demolition                 1            1
+Deathmatch                 2            1
+```
