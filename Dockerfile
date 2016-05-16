@@ -3,9 +3,7 @@ MAINTAINER Christian Harke <ch.harke@gmail.com>
 
 # Server settings
 ENV appdir=/home/${user}/csgoserver \
-    appid=740 \
-    tickrate=${tickrate:-128} \
-    maxplayers=${maxplayers:-16}
+    appid=740
 
 # Install application
 RUN ./steamcmd.sh \
@@ -36,5 +34,8 @@ RUN { \
         sed -i 's/Rank/\/\/Rank/g' botprofile.db; \
     }
 
+ENV maxplayers=${maxplayers} \
+    tickrate=${tickrate:-128}
+
 # https://developer.valvesoftware.com/wiki/Command_Line_Options#Source_Dedicated_Server
-ENTRYPOINT ["./srcds_run", "-autoupdate", "-console", "-game csgo", "-maxplayers_override ${maxplayers}", "-tickrate ${tickrate}", "-usercon"]
+ENTRYPOINT ./srcds_run -autoupdate -console -game csgo -maxplayers_override ${maxplayers} -tickrate ${tickrate} -usercon
