@@ -68,7 +68,7 @@ log | <code>[on&#124;off]</code> | `on`
 
 Additionally, you can add commands to be executed directly after start.
 
-> For more details see: please refer to this [inofficial but rather complete list of CS:GO Console Commands](http://www.tobyscs.com/csgo-console-commands/)
+> For more details refer to this [inofficial but rather complete list of CS:GO Console Commands](http://www.tobyscs.com/csgo-console-commands/)
 
 #### Examples
 
