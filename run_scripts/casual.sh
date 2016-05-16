@@ -13,7 +13,7 @@
 PORT=${1:-27015}
 DEFAULTMAP=${2}
 RCON_PW=${3}
-MAX_PLAYERS=${4:-16}
+MAX_PLAYERS=${4}
 
 docker run -it \
     -e maxplayers=${MAX_PLAYERS} \

@@ -44,8 +44,8 @@ docker run -it \
 
 Variable | Value | Default
 -------- | ----- | -------
+maxplayers | `[# of players]` | -
 tickrate | `[# ticks per second]` | `128`
-maxplayers | `[# of players]` | `16`
 
 #### Example
 
