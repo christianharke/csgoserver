@@ -37,5 +37,13 @@ RUN { \
 ENV maxplayers=${maxplayers} \
     tickrate=${tickrate:-128}
 
+# Expose ports
+# - 27015/udp: CSGO
+# - 27015/tcp: rcon
+# - 27020: Source-TV
+EXPOSE 27015/tcp
+EXPOSE 27015/udp
+EXPOSE 27020
+
 # https://developer.valvesoftware.com/wiki/Command_Line_Options#Source_Dedicated_Server
 ENTRYPOINT ./srcds_run -autoupdate -console -game csgo -maxplayers_override ${maxplayers} -tickrate ${tickrate} -usercon
