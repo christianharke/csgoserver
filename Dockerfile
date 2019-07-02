@@ -1,5 +1,5 @@
 FROM christianharke/steamcmd:latest
-MAINTAINER Christian Harke <ch.harke@gmail.com>
+LABEL maintainer="Christian Harke <ch.harke@gmail.com>"
 
 # Server settings
 ENV appdir=/home/${user}/csgoserver \
@@ -23,10 +23,10 @@ RUN { \
         # Install metamod & sourcemod
         # - http://www.metamodsource.net/
         # - http://www.sourcemod.net/
-        wget http://mirror.pointysoftware.net/alliedmodders/mmsource-1.10.6-linux.tar.gz; \
-        tar -xvzf mmsource-1.10.6-linux.tar.gz; \
-        wget http://mirror.pointysoftware.net/alliedmodders/sourcemod-1.7.2-linux.tar.gz; \
-        tar -xvzf sourcemod-1.7.2-linux.tar.gz; \
+        wget https://mms.alliedmods.net/mmsdrop/1.10/mmsource-1.10.7-git970-linux.tar.gz; \
+        tar -xvzf mmsource-1.10.7-git970-linux.tar.gz; \
+        wget https://sm.alliedmods.net/smdrop/1.9/sourcemod-1.9.0-git6281-linux.tar.gz; \
+        tar -xvzf sourcemod-1.9.0-git6281-linux.tar.gz; \
 
         # Prevent some error notifications
         touch cfg/gamemode_casual_server.cfg; \
