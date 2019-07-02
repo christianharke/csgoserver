@@ -8,7 +8,7 @@ CS:GO Dedicated Server containing MetaMod and SourceMod, running in a Docker con
 
 ### Minimal setup
 
-```
+```bash
 docker run -it \
     -p 27015:27015/udp \
     christianharke/csgoserver
@@ -16,7 +16,7 @@ docker run -it \
 
 ### With RCON enabled
 
-```
+```bash
 docker run -it \
     -p 27015:27015/udp \
     -p 27015:27015 \
@@ -26,7 +26,7 @@ docker run -it \
 
 ### With Source-TV enabled
 
-```
+```bash
 docker run -it \
     -p 27015:27015/udp \
     -p 27020:27020 \
@@ -42,10 +42,10 @@ docker run -it \
 
 #### Available variables
 
-Variable | Value | Default
--------- | ----- | -------
-maxplayers | `[# of players]` | -
-tickrate | `[# ticks per second]` | `128`
+Variable   | Value                  | Default
+-----------|------------------------|--------
+maxplayers | `[# of players]`       | -
+tickrate   | `[# ticks per second]` | `128`
 
 #### Example
 
@@ -62,9 +62,9 @@ docker run -it \
 
 #### Predefined defaults
 
-Variable | Value | Default
--------- | ----- | -------
-log | <code>[on&#124;off]</code> | `on`
+Variable | Value                      | Default
+---------|----------------------------|--------
+log      | <code>[on&#124;off]</code> | `on`
 
 Additionally, you can add commands to be executed directly after start.
 
@@ -72,9 +72,9 @@ Additionally, you can add commands to be executed directly after start.
 
 #### Examples
 
-##### Set first map after startup
+##### Set first map after startup
 
-```
+```bash
 docker run -it \
     -p 27015:27015/udp \
     christianharke/csgoserver \
@@ -83,7 +83,7 @@ docker run -it \
 
 ##### Set game mode to Deathmatch
 
-```
+```bash
 docker run -it \
     -p 27015:27015/udp \
     christianharke/csgoserver \
@@ -92,11 +92,11 @@ docker run -it \
 ```
 
 > Available modes/types:
-> ```
-Mode                   game_mode    game_type
-Classic Casual             0            0
-Classic Competitive        0            1
-Arms Race                  1            0
-Demolition                 1            1
-Deathmatch                 2            1
-```
+>
+> Mode                | game_mode | game_type
+> --------------------|-----------|----------
+> Classic Casual      | 0         | 0
+> Classic Competitive | 0         | 1
+> Arms Race           | 1         | 0
+> Demolition          | 1         | 1
+> Deathmatch          | 2         | 1
